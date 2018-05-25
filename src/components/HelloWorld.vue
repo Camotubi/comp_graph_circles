@@ -10,22 +10,43 @@ import P5 from 'p5'
 export default {
   name: 'HelloWorld',
   mounted () {
-    new P5(sketch => {
-      const x = 100
-      const y = 100
-      sketch.setup = () => {
-        sketch.createCanvas(200, 200)
-      }
-      sketch.draw = () => {
-        sketch.background(0)
-        sketch.fill(255)
-        sketch.rect(x, y, 50, 50)
-      }
-    }, 'p5sketch')
+    this.ddaCircle(100)
   },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods:{
+    ddaCircle(radio) {
+      const canvasHeight = 200
+      const canvasWidth = 200
+      let rx = radio
+      let x = Math.round(radio)
+      let y = 0
+    new P5(sketch => {
+      sketch.setup = () => {
+        sketch.createCanvas(canvasHeight, canvasWidth)
+        sketch.background(0)
+      }
+      sketch.draw = () => {
+        sketch.stroke(255);
+        sketch.translate(canvasWidth/2, canvasHeight/2);
+        while( y <= x){
+          sketch.point(x, y)
+          sketch.point(y, x)
+          sketch.point(-x, y)
+          sketch.point(-y, x)
+          sketch.point(x, -y)
+          sketch.point(y, -x)
+          sketch.point(-x, -y)
+          sketch.point(-y, -x)
+          rx -= y/rx
+          x = Math.round(rx)
+          y++
+        }
+      }
+    }, 'p5sketch')
     }
   }
 }
