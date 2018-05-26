@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import DdaCircle from '@/components/DdaCircle'
+import BresenCircle from '@/components/BresenCircle'
 
 Vue.use(Router)
 
@@ -8,8 +9,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'BresenCircle',
+      component: BresenCircle
+    },
+    {
+      path: '/a',
+      name: 'DdaCircle',
+      component: DdaCircle
     }
   ]
 })
