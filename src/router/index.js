@@ -30,6 +30,14 @@ export default new Router({
       props: {
         canvasColor: 'hsl(217, 71%, 53%)'
       }
+    },
+    {
+      path: '/',
+      name: 'DdaCircle',
+      component: DdaCircle,
+      props: {
+        canvasColor: 'hsl(217, 71%, 53%)'
+      }
     }
   ]
 })
