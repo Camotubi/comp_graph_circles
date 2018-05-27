@@ -42,13 +42,13 @@ export default {
       default: 0
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.p5Sketch.remove()
   },
-  mounted() {
+  mounted () {
     this.p5sKetchInit()
   },
-  data() {
+  data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       colorList: [
@@ -76,7 +76,7 @@ export default {
     }
   },
   methods: {
-    p5sKetchInit() {
+    p5sKetchInit () {
       this.p5Sketch = new P5(sketch => {
         sketch.setup = () => {
           sketch.createCanvas(this.canvasHeight, this.canvasWidth)
@@ -100,7 +100,7 @@ export default {
         }
       }, 'p5sketch')
     },
-    ddaCircle(sketch, radio) {
+    ddaCircle (sketch, radio) {
       let rx = radio
       let x = Math.round(radio)
       let y = 0
@@ -114,7 +114,7 @@ export default {
       }
     },
 
-    ddaCircleAnimatedFancy(sketch, radio) {
+    ddaCircleAnimatedFancy (sketch, radio) {
       const sk = this.animatedSketchData
       sketch.stroke(this.colorList[sk.currentStrokeIndex])
       sketch.translate(this.canvasWidth / 2, this.canvasHeight / 2)
@@ -132,7 +132,7 @@ export default {
       }
     },
 
-    paintCircleStep(sketch, x, y) {
+    paintCircleStep (sketch, x, y) {
       sketch.point(x, y)
       sketch.point(y, x)
       sketch.point(-x, y)
@@ -142,19 +142,19 @@ export default {
       sketch.point(-x, -y)
       sketch.point(-y, -x)
     },
-    setAnimated() {
+    setAnimated () {
       this.circleSketch = 'animated'
     },
-    setNormal() {
+    setNormal () {
       this.circleSketch = 'normal'
     }
 
   },
   watch: {
-    circleSketch() {
+    circleSketch () {
       this.clearCanvas = true
     },
-    circleRadius(val) {
+    circleRadius (val) {
       this.clearCanvas = true
       this.animatedSketchData = {
         x: Math.round(val),
