@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import DdaCircle from '@/components/DdaCircle'
 import BresenCircle from '@/components/BresenCircle'
 import Ellipse from '@/components/Ellipse'
+import Presentation from '@/components/Presentation'
 
 Vue.use(Router)
 
@@ -33,11 +34,8 @@ export default new Router({
   },
   {
     path: '/',
-    name: 'DdaCircle',
-    component: DdaCircle,
-    props: {
-      canvasColor: 'hsl(217, 71%, 53%)'
-    }
+    name: 'Presentation',
+    component: Presentation
   }
   ]
 })
